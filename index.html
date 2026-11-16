@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KODE — Список сотрудников</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="header__title">Поиск</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-bar__input"
+          placeholder="Введи имя, тег, почту..."
+        />
+        <button id="sortBtn" class="search-bar__sort" title="Сортировать по алфавиту">
+          А–Я
+        </button>
+      </div>
+
+      <nav class="tabs" id="departmentTabs">
+        <button class="tabs__btn tabs__btn--active" data-dept="all">Все</button>
+        <button class="tabs__btn" data-dept="design">Designers</button>
+        <button class="tabs__btn" data-dept="analytics">Analysts</button>
+        <button class="tabs__btn" data-dept="management">Managers</button>
+        <button class="tabs__btn" data-dept="ios">iOS</button>
+        <button class="tabs__btn" data-dept="android">Android</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="usersList" class="users-list"></div>
+    <div id="emptyState" class="empty-state hidden">
+      <h2>Мы никого не нашли</h2>
+      <p>Попробуй скорректировать запрос или сбросить фильтр</p>
+    </div>
+  </main>
+
+  <div id="userModal" class="modal hidden">
+    <div class="modal__overlay" id="modalOverlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>    
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
