@@ -71,15 +71,15 @@ const modalCloseEl = document.getElementById("modalClose");
 const modalBodyEl = document.getElementById("modalBody");
 
 function renderUsers() {
-  const query = searchInputEl.value.toLowerCase().trim();
+  const query = searchInputEl.value;
 
   let filtered = users.filter((user) => {
     const matchesDept = currentDept === "all" || user.department === currentDept;
-    const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
+    const fullName = `${user.firstName} ${user.lastName}`;
     const matchesQuery =
       fullName.includes(query) ||
-      user.userTag.toLowerCase().includes(query) ||
-      user.position.toLowerCase().includes(query);
+      user.userTag.includes(query) ||
+      user.position.includes(query);
 
     return matchesDept && matchesQuery;
   });
@@ -149,6 +149,5 @@ tabsEl.addEventListener("click", (e) => {
 });
 
 modalCloseEl.addEventListener("click", closeModal);
-modalOverlayEl.addEventListener("click", closeModal);
 
 renderUsers();
