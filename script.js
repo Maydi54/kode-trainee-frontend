@@ -149,5 +149,6 @@ tabsEl.addEventListener("click", (e) => {
 });
 
 modalCloseEl.addEventListener("click", closeModal);
+modalOverlayEl.addEventListener("click", closeModal);
 
 renderUsers();
