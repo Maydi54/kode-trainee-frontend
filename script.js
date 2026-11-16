@@ -71,15 +71,15 @@ const modalCloseEl = document.getElementById("modalClose");
 const modalBodyEl = document.getElementById("modalBody");
 
 function renderUsers() {
-  const query = searchInputEl.value;
+  const query = searchInputEl.value.toLowerCase().trim();
 
   let filtered = users.filter((user) => {
     const matchesDept = currentDept === "all" || user.department === currentDept;
-    const fullName = `${user.firstName} ${user.lastName}`;
+    const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
     const matchesQuery =
       fullName.includes(query) ||
-      user.userTag.includes(query) ||
-      user.position.includes(query);
+      user.userTag.toLowerCase().includes(query) ||
+      user.position.toLowerCase().includes(query);
 
     return matchesDept && matchesQuery;
   });
